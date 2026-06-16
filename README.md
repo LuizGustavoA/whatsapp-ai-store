@@ -1,4 +1,5 @@
 # WhatsApp AI Store
+<video src="painel-admin.mp4" controls width="100%"></video>
 
 Sistema de atendimento e vendas via WhatsApp com IA para restaurantes e delivery.
 
