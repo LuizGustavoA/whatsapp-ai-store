@@ -8,19 +8,34 @@ Sistema de atendimento e vendas via WhatsApp com IA para restaurantes e delivery
 
 ## Demonstração em vídeo
 
-Assista direto no GitHub (player abaixo) ou abra o arquivo em tela cheia.
+| Demo | Assistir |
+|------|----------|
+| Painel administrativo | [▶ Ver vídeo](./docs/demos/painel-admin.mp4) |
+| Painel do atendente | [▶ Ver vídeo](./docs/demos/painel-atendente.mp4) |
 
-### Painel administrativo
+**Como assistir no GitHub:** clique no link → **Download** (ou botão de download no canto) → abra o `.mp4` no seu computador.
 
-<video src="https://github.com/LuizGustavoA/whatsapp-ai-store/raw/main/docs/demos/painel-admin.mp4" controls width="100%"></video>
+> O GitHub **não exibe inline** arquivos maiores que ~10 MB. O vídeo do admin (~12 MB) por isso mostra *"não podemos exibir arquivos tão grandes"*. O do atendente (~7 MB) pode abrir no navegador.
 
-[Abrir vídeo em tela cheia](./docs/demos/painel-admin.mp4)
+### Player embutido no README (recomendado para portfólio)
 
-### Painel do atendente
+1. Abra o repositório no GitHub → **README.md** → ícone de **lápis** (Edit)
+2. Apague a tabela acima (se quiser só o player)
+3. **Arraste** cada `.mp4` de `docs/demos/` para dentro do editor
+4. O GitHub gera um link `https://github.com/user-attachments/assets/...` que **reproduz direto no README**
+5. **Commit changes**
 
-<video src="https://github.com/LuizGustavoA/whatsapp-ai-store/raw/main/docs/demos/painel-atendente.mp4" controls width="100%"></video>
+Alternativa: suba os vídeos no **YouTube** (não listado) e cole o link aqui:
 
-[Abrir vídeo em tela cheia](./docs/demos/painel-atendente.mp4)
+```markdown
+[![Demo painel admin](https://img.youtube.com/vi/SEU_ID/0.jpg)](https://www.youtube.com/watch?v=SEU_ID)
+```
+
+Para reduzir o tamanho dos MP4 localmente (meta: **< 10 MB**):
+
+```bash
+ffmpeg -i docs/demos/painel-admin.mp4 -vcodec libx264 -crf 28 -preset fast docs/demos/painel-admin-lite.mp4
+```
 
 ---
 
