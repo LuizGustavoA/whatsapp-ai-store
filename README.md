@@ -10,7 +10,7 @@ Sistema de atendimento e vendas via WhatsApp com IA para restaurantes e delivery
 
 | Demo | Assistir |
 |------|----------|
-| Painel administrativo | [▶ Ver vídeo](./docs/demos/painel-admin.mp4) |
+| Painel administrativo | [▶ Ver vídeo](./docs/demos/painel-admin.mp4) | baixe o arquivo para ver
 | Painel do atendente | [▶ Ver vídeo](./docs/demos/painel-atendente.mp4) |
 
 **Como assistir no GitHub:** clique no link → **Download** (ou botão de download no canto) → abra o `.mp4` no seu computador.
