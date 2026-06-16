@@ -5,12 +5,6 @@ Sistema de atendimento e vendas via WhatsApp com IA para restaurantes e delivery
 > Roadmap completo e APIs: [ROADMAP.md](./ROADMAP.md)
 
 ---
-<video src="**/painel-admin.mp4" controls width="100%"></video>
-
-
-
-
-
 
 ## Demonstração em vídeo
 
