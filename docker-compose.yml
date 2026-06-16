@@ -4,9 +4,9 @@ services:
     container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: evolution
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no .env da raiz}
+      POSTGRES_DB: ${POSTGRES_DB:-evolution}
     ports:
       - "5432:5432"
 
@@ -19,8 +19,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - AUTHENTICATION_API_KEY=123456
-
-      # 🔥 CORRETO AGORA
-      - DATABASE_PROVIDER=postgresql
-      - DB_CONNECTION_URI=postgresql://postgres:123456@postgres:5432/evolution
+      AUTHENTICATION_API_KEY: ${EVOLUTION_API_KEY:?Defina EVOLUTION_API_KEY no .env da raiz}
+      DATABASE_PROVIDER: postgresql
+      DB_CONNECTION_URI: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-evolution}

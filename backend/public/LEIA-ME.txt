@@ -1,0 +1,17 @@
+Coloque aqui a foto do cardápio com um destes nomes:
+
+- cardapio.jpg  (recomendado)
+- cardapio.png
+- menu.jpg
+
+Depois configure no .env:
+
+PUBLIC_BASE_URL=https://sua-url-publica.com
+
+(ex.: URL do ngrok ou domínio em produção)
+
+Ou use diretamente:
+
+MENU_IMAGE_URL=https://link-publico-da-imagem.jpg
+
+A Meta/WhatsApp só aceita imagens em URLs HTTPS acessíveis publicamente.

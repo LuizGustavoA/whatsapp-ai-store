@@ -1,0 +1,91 @@
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: #1a1a2e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+}
+
+.attendant-sidebar {
+  background: #1e3a5f;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 0 0.5rem;
+}
+
+.sidebar-brand span {
+  font-size: 1.75rem;
+}
+
+.sidebar-brand strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.sidebar-brand small {
+  color: #aaa;
+  font-size: 0.75rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.sidebar-nav a {
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  color: #ccc;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar-nav a.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.attendant-sidebar .sidebar-nav a.active {
+  background: #3b82f6;
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.sidebar-footer p {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  padding: 0 0.5rem;
+}
+
+.sidebar-footer button {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.sidebar-footer button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}

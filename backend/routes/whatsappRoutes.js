@@ -1,30 +1,34 @@
-const express = require("express");
+const express = require('express');
+const whatsappController = require('../controllers/whatsappController');
+
 const router = express.Router();
 
-router.get("/webhook", (req, res) => {
-  console.log("Webhook chamado");
-  console.log("TOKEN RECEBIDO:", req.query["hub.verify_token"]);
-  console.log("TOKEN ENV:", process.env.WHATSAPP_VERIFY_TOKEN);
-
-  const mode = req.query["hub.mode"];
-  const token = req.query["hub.verify_token"];
-  const challenge = req.query["hub.challenge"];
+router.get('/webhook', (req, res) => {
+  const mode = req.query['hub.mode'];
+  const token = req.query['hub.verify_token'];
+  const challenge = req.query['hub.challenge'];
+  const expectedToken = process.env.WHATSAPP_VERIFY_TOKEN;
 
   if (
-    mode === "subscribe" &&
-    token === process.env.WHATSAPP_VERIFY_TOKEN
+    mode === 'subscribe' &&
+    expectedToken &&
+    token === expectedToken
   ) {
-    console.log("Webhook validado com sucesso!");
+    console.log('Webhook validado com sucesso!');
     return res.status(200).send(challenge);
   }
 
-  console.log("Falha na validação");
+  if (!expectedToken) {
+    console.log('Falha na validação do webhook: WHATSAPP_VERIFY_TOKEN não está definido no .env');
+  } else if (mode !== 'subscribe') {
+    console.log('Falha na validação do webhook: hub.mode inválido:', mode);
+  } else {
+    console.log('Falha na validação do webhook: token não confere com WHATSAPP_VERIFY_TOKEN do .env');
+  }
+
   return res.sendStatus(403);
 });
-router.post("/webhook", (req, res) => {
-  console.log("=== NOVA MENSAGEM ===");
-  console.log(JSON.stringify(req.body, null, 2));
 
-  res.sendStatus(200);
-});
+router.post('/webhook', whatsappController.receiveMessage);
+
 module.exports = router;

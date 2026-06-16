@@ -1,2 +1,87 @@
-**/node_modules/ 
-**/.env 
+# ── Dependências ──────────────────────────────────────────────
+**/node_modules/
+
+# ── Variáveis de ambiente e secrets (NUNCA commitar) ──────────
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Arquivos de credenciais
+credentials.json
+secrets.json
+**/secrets/
+*.secret
+*.pem
+*.p12
+*.pfx
+# Chaves privadas (não afeta node_modules — já ignorado acima)
+*.key
+!*.key.example
+
+# Certificados SSL/TLS
+*.crt
+*.cer
+ssl/
+certs/
+
+# ngrok (pode conter authtoken)
+.ngrok/
+ngrok.yml
+ngrok.yaml
+
+# ── Build / cache ─────────────────────────────────────────────
+dist/
+build/
+**/dist/
+.vite/
+**/.vite/
+*.tsbuildinfo
+.npm/
+.eslintcache
+
+# Painéis React (Vite)
+backend/admin-panel/dist/
+backend/attendant-panel/dist/
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+logs/
+**/logs/
+
+# ── Testes / cobertura ────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Docker (dados locais e overrides com senhas) ─────────────
+docker-compose.override.yml
+docker-compose.*.local.yml
+postgres_data/
+**/postgres_data/
+docker-data/
+
+# Evolution API / sessões WhatsApp (docker-compose local)
+instances/
+store/
+evolution/
+
+# ── Uploads locais (cardápio em backend/public/) ──────────────
+backend/public/cardapio.*
+backend/public/menu.*
+backend/public/*.jpg
+backend/public/*.jpeg
+backend/public/*.png
+backend/public/*.webp
+!backend/public/LEIA-ME.txt
+
+# ── SO / IDE ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

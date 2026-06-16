@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: whatsapp-ai-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:?Defina DB_USER em backend/.env ou use --env-file backend/.env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD em backend/.env ou use --env-file backend/.env}
+      POSTGRES_DB: ${DB_NAME:?Defina DB_NAME em backend/.env ou use --env-file backend/.env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-evolution}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: whatsapp-ai-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - backend/.env
+    environment:
+      DB_HOST: postgres
+      PORT: 3000
+    expose:
+      - "3000"
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: whatsapp-ai-nginx
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./backend/admin-panel/dist:/usr/share/nginx/html/admin:ro
+      - ./backend/attendant-panel/dist:/usr/share/nginx/html/atendente:ro
+
+volumes:
+  postgres_data:
