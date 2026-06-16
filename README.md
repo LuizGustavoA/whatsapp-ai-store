@@ -12,6 +12,24 @@ Sistema de atendimento e vendas via WhatsApp com IA para restaurantes e delivery
 
 
 
+## Demonstração em vídeo
+
+Assista direto no GitHub (player abaixo) ou abra o arquivo em tela cheia.
+
+### Painel administrativo
+
+<video src="https://github.com/LuizGustavoA/whatsapp-ai-store/raw/main/docs/demos/painel-admin.mp4" controls width="100%"></video>
+
+[Abrir vídeo em tela cheia](./docs/demos/painel-admin.mp4)
+
+### Painel do atendente
+
+<video src="https://github.com/LuizGustavoA/whatsapp-ai-store/raw/main/docs/demos/painel-atendente.mp4" controls width="100%"></video>
+
+[Abrir vídeo em tela cheia](./docs/demos/painel-atendente.mp4)
+
+---
+
 ## O que o sistema faz
 
 - **Atendimento automático** no WhatsApp (Meta Cloud API) com respostas em português
